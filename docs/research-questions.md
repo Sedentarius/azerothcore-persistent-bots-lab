@@ -2,6 +2,16 @@
 
 The project is an engineering study of persistent rule-based game agents in a long-running virtual world. The goal is practical knowledge that can improve configuration, testing, debugging, and PlayerBots development.
 
+## RQ0 - Fresh upstream behavior
+
+How does a fresh upstream deployment behave before this project applies its own patches or behavioral configuration changes?
+
+This is the reference question for the rest of the project. It establishes what the selected upstream stack already does, which behaviors are defaults, which problems already exist, and which later changes are actually caused by this project.
+
+Useful measurements include bot creation, default level distribution, level changes, persistence, resource generation, equipment changes, population activity, world-loop performance, memory use, database growth, navigation failures, group behavior, Dungeon Finder behavior, and operational errors.
+
+The baseline must record exact upstream revisions and every deployment-specific deviation from default configuration.
+
 ## RQ1 - Persistent progression
 
 Can bots start at level 1 and progress over long periods without artificial level redistribution while preserving character state across logouts and server restarts?
