@@ -2,6 +2,34 @@
 
 This project uses simple scientific rules to keep engineering claims auditable. The rules matter more than academic presentation.
 
+## Baseline-first design
+
+Before applying project-specific patches or behavioral configuration changes, the project must characterize a fresh upstream deployment.
+
+The first formal experiment is `EXP-000 - Fresh Upstream Baseline`.
+
+For this project, **fresh upstream** means the selected upstream server stack at exact recorded revisions, installed as distributed, with no project patches and no project-specific behavioral tuning. Only changes required to make the software run in the local environment are allowed. Examples include credentials, paths, ports, database connection values, and other deployment-specific values that do not intentionally change bot or world behavior.
+
+Every allowed baseline deviation from upstream defaults must be listed in the experiment manifest.
+
+The baseline should measure behavior before trying to improve it. At minimum, it should describe:
+
+- bot population creation and default level distribution;
+- level changes across runtime, logout, and restart;
+- default XP and world rates relevant to bots;
+- default bot cheats, maintenance, equipment, food, money, repair, and training behavior when observable;
+- character-state persistence;
+- population online behavior;
+- world-loop and host performance under the tested population;
+- navigation or stuck events that occur during the observation window;
+- basic group and Dungeon Finder behavior if enabled by the fresh stack;
+- database growth and operational failures;
+- exact server runtime, bot-hours, and human presence.
+
+The baseline is a **reference baseline**, not automatically a valid control for every later experiment. If a later intervention changes several variables at once, causal claims require a narrower comparison, ablation, or dedicated control.
+
+After the baseline is frozen, project changes should be introduced as explicit interventions. Whenever practical, measure the same metrics before and after the intervention.
+
 ## Evidence labels
 
 Every important statement should fit one of these categories.
