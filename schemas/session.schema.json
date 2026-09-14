@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/session.schema.json",
+  "title": "Server Session",
+  "type": "object",
+  "required": ["schema_version", "session_id", "started_at", "termination_reason"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "session_id": {"type": "string", "pattern": "^SES-[0-9]{6}$"},
+    "release_id": {"type": ["string", "null"]},
+    "realm_stage": {"type": ["integer", "null"], "minimum": 0},
+    "started_at": {"type": "string", "format": "date-time"},
+    "stopped_at": {"type": ["string", "null"], "format": "date-time"},
+    "termination_reason": {"type": ["string", "null"], "enum": ["clean_stop", "crash", "host_stop", "unknown", null]},
+    "server_runtime_seconds": {"type": ["number", "null"], "minimum": 0},
+    "human_presence": {
+      "type": "object",
+      "properties": {
+        "present": {"type": ["boolean", "null"]},
+        "seconds": {"type": ["number", "null"], "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "bot_population": {
+      "type": "object",
+      "properties": {
+        "unique_bots": {"type": ["integer", "null"], "minimum": 0},
+        "mean_online": {"type": ["number", "null"], "minimum": 0},
+        "bot_hours": {"type": ["number", "null"], "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "active_experiments": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^EXP-[0-9]{3}$"},
+      "uniqueItems": true
+    },
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

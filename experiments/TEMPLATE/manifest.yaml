@@ -1,0 +1,17 @@
+schema_version: 1
+experiment_id: EXP-XXX
+title: REPLACE_ME
+status: planned
+mode: controlled
+research_question: null
+hypothesis: null
+release_id: null
+realm_stage: null
+cohorts: []
+primary_metrics: []
+secondary_metrics: []
+exposure_target: null
+sessions: []
+datasets: []
+analysis: null
+result: null

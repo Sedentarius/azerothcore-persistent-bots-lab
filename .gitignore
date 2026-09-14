@@ -1,0 +1,57 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Database dumps and backups
+*.sql
+*.sql.gz
+*.dump
+*.bak
+backups/
+pdumps/
+
+# World of Warcraft client and proprietary game data
+*.MPQ
+*.mpq
+*.dbc
+*.db2
+client/
+Data/
+
+# Runtime data
+logs/
+*.log
+runtime/
+cache/
+
+# Large local datasets; publish curated datasets deliberately
+data/raw/local/
+data/intermediate/local/
+
+# Build artifacts
+build/
+bin/
+obj/
+*.o
+*.so
+*.dll
+*.exe
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/

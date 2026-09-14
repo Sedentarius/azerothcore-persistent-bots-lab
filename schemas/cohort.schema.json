@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/cohort.schema.json",
+  "title": "Bot Cohort",
+  "type": "object",
+  "required": ["schema_version", "cohort_id", "population", "created_at", "initial_conditions"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "cohort_id": {"type": "string", "pattern": "^C[0-9]{2}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "created_session": {"type": ["string", "null"], "pattern": "^SES-[0-9]{6}$"},
+    "population": {"type": "integer", "minimum": 1},
+    "realm_stage": {"type": ["integer", "null"], "minimum": 0},
+    "initial_conditions": {
+      "type": "object",
+      "required": ["level_policy"],
+      "properties": {
+        "level_policy": {"type": "string"},
+        "xp_rate": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "generated_gold": {"type": ["boolean", "null"]},
+        "generated_food": {"type": ["boolean", "null"]},
+        "generated_gear": {"type": ["boolean", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "creation_method": {"type": ["string", "null"]},
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
