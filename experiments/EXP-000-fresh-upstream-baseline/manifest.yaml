@@ -1,0 +1,57 @@
+experiment_id: EXP-000
+title: Fresh Upstream Baseline
+status: planned
+kind: characterization
+
+question: >-
+  How does the selected upstream server stack behave before project-specific
+  patches or behavioral configuration changes are applied?
+
+hypothesis: null
+exploratory: true
+
+baseline_definition:
+  project_patches_allowed: false
+  behavioral_tuning_allowed: false
+  deployment_only_changes_allowed: true
+  deployment_change_examples:
+    - credentials
+    - filesystem paths
+    - ports
+    - database connection values
+  deviations_must_be_recorded: true
+
+required_provenance:
+  - project_commit
+  - upstream_revisions
+  - docker_image_or_build_identity
+  - effective_configuration
+  - host_summary
+  - client_build
+  - session_ids
+
+primary_measurement_groups:
+  - population
+  - progression
+  - persistence
+  - resource_provenance
+  - economy_state
+  - navigation
+  - group_behavior
+  - rdf_behavior
+  - performance
+  - database_growth
+  - operational_failures
+
+exposure:
+  target_server_runtime_hours: null
+  target_bot_hours: null
+  stopping_rule: to_be_frozen_before_data_collection
+
+analysis:
+  plan: protocol.md
+  result_path: null
+
+notes:
+  - This experiment is a reference characterization, not a universal causal control.
+  - No result is claimed until runtime targets, exact versions, configuration, and analysis are frozen.

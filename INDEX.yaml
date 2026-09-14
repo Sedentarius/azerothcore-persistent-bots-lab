@@ -20,8 +20,11 @@ decisions:
   ADR-0002: decisions/ADR-0002-disable-dynamic-level-brackets.md
   ADR-0003: decisions/ADR-0003-intermittent-runtime.md
   ADR-0004: decisions/ADR-0004-separate-observations-and-experiments.md
+  ADR-0005: decisions/ADR-0005-baseline-before-intervention.md
 
-experiments: {}
+experiments:
+  EXP-000: experiments/EXP-000-fresh-upstream-baseline
+
 datasets: {}
 cohorts: {}
 releases: {}

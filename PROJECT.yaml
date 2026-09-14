@@ -21,17 +21,29 @@ scope:
     - server reliability
 
 research_policy:
+  baseline_before_project_interventions: true
   observations_are_experiments: false
   negative_results_are_publishable: true
   raw_data_is_immutable: true
   exact_runtime_exposure_required: true
   exact_upstream_revisions_required_for_results: true
+  default_behavior_must_be_measured_before_replacement: true
 
 current:
-  phase: pre-reset
+  phase: upstream-baseline-planning
   release: null
   realm_stage: null
   active_cohorts: []
+  baseline_experiment: EXP-000
+
+research_sequence:
+  - phase: baseline
+    experiment: EXP-000
+    purpose: characterize a fresh upstream deployment before project-specific patches and behavioral configuration changes
+  - phase: intervention
+    purpose: apply project changes as explicit, reviewable interventions and compare them with the baseline where the comparison is valid
+  - phase: persistent_world
+    purpose: begin longitudinal cohort and world experiments after the intervention build passes QA
 
 documentation:
   agent_guide: AGENTS.md
