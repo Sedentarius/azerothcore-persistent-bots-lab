@@ -1,0 +1,73 @@
+schema_version: 1
+experiment_id: EXP-000
+status: selected_pending_local_verification
+
+baseline_target:
+  name: lathcf/azerothcore-playerbots-docker-automated
+  repository: https://github.com/lathcf/azerothcore-playerbots-docker-automated
+  commit: 7da03710f8cfbc9729760c9a9f54d19a217ad80c
+  commit_date_utc: 2026-09-13T04:58:19Z
+  default_branch: main
+
+pinned_upstream_components:
+  azerothcore-wotlk:
+    commit: 413bea61a85e20d9caef7d66fc601a661fdddd9d
+  mod-playerbots:
+    commit: b949b50bfcdd4fab937781bac2d7765e39330e4b
+  mod-individual-progression:
+    commit: 977e2005bacf97f35e506eb27b8af6b2ea1136af
+  mod-multibot-bridge:
+    commit: 759c100d5e508b9af28531a2642ded70619828ba
+  mod-era-talents:
+    commit: 3a0d9776c6837d8a5e5038c23c01c4fc388d90f8
+
+source_files:
+  repo_pins_blob_sha: 9cc8236fae74dbcd9843e5c0446235e02c855aa4
+  env_example_blob_sha: 9e32e01d2b8e54bf2726c79b3ce26f1d58c098bd
+
+verified_research_relevant_defaults:
+  max_random_bots: 500
+  rates:
+    xp_kill: 3
+    xp_quest: 3
+    xp_explore: 3
+    xp_pet: 3
+    money_drop: 2
+    reputation: 5
+    honor: 5
+    rested_xp_fill:
+      in_game: 3
+      offline_tavern: 3
+      offline_wilderness: 3
+  playerbots_activity:
+    bot_active_alone_percent: 10
+    bot_active_alone_smart_scale: true
+    random_bots_per_interval: 150
+  quality_of_life:
+    free_dual_spec: true
+    molten_core_douse_no_cooldown: true
+    darkmoon_continuous: true
+    stave_fast_respawn: true
+    bot_chatter: mild
+  optional_systems:
+    auction_house_bot: disabled_without_guid
+    llm_chatter: disabled
+    lore_sidecar: disabled
+    raid_roster: disabled
+    wintergrasp_bots: disabled
+    arena_roster: disabled
+  individual_progression:
+    enabled: true
+    starting_progression: 0
+    progression_limit: 0
+    manual_era_advance: true
+    rdf_disabled: false
+    bot_accounts_max_level: 80
+    tbc_races_unlock_stage: 8
+    death_knight_unlock_stage: 13
+
+interpretation:
+  - This is a baseline for the selected lathcf distribution, not pristine AzerothCore.
+  - The upstream distribution itself contains patches, performance tuning, QoL choices, and modules.
+  - No value in this file replaces capture of the effective local configuration before the first measured session.
+  - If the local checkout does not match these revisions, EXP-000 must not start until the mismatch is resolved or recorded as a new baseline revision.
