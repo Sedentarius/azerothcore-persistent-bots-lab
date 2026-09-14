@@ -1,0 +1,46 @@
+schema_version: 1
+experiment_id: EXP-000
+run_id: RUN-000X
+status: planned
+
+session_ids: []
+
+upstream_identity:
+  deployment_bundle_commit: null
+  azerothcore_commit: null
+  playerbots_commit: null
+  module_commits: {}
+
+configuration:
+  effective_config_archive: null
+  deviation_register: ../baseline-deviations.yaml
+
+initial_state:
+  fresh_database: true
+  reused_project_characters: false
+  reused_project_bot_progression: false
+
+exposure:
+  server_runtime_seconds: 0
+  bot_hours: 0.0
+  sessions: 0
+  clean_restarts: 0
+  longest_continuous_session_seconds: 0
+  human_online_seconds: 0
+
+validity:
+  project_patches_present: false
+  behavior_tuning_present: false
+  contaminated_sessions: []
+
+artifacts:
+  population_snapshots: []
+  performance_data: []
+  database_snapshots: []
+  logs: []
+  observations: []
+
+completion:
+  exposure_targets_met: false
+  provenance_complete: false
+  report_complete: false
