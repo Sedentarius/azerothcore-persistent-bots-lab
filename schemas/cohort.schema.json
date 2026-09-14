@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/schemas/cohort.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sedentarius/azerothcore-persistent-bots-lab/main/schemas/cohort.schema.json",
   "title": "Bot Cohort",
   "type": "object",
   "required": ["schema_version", "cohort_id", "population", "created_at", "initial_conditions"],

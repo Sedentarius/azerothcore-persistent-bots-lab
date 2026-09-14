@@ -3,6 +3,7 @@ schema_version: 1
 project:
   descriptor: PROJECT.yaml
   readme: README.md
+  agent_guide: AGENTS.md
 
 documents:
   methodology: docs/methodology.md
@@ -11,6 +12,7 @@ documents:
   reproducibility: docs/reproducibility.md
   data_model: docs/data-model.md
   glossary: docs/glossary.md
+  style_guide: docs/style-guide.md
   licensing: docs/licensing.md
 
 decisions:

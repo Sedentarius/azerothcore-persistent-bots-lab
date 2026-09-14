@@ -34,12 +34,14 @@ current:
   active_cohorts: []
 
 documentation:
+  agent_guide: AGENTS.md
   methodology: docs/methodology.md
   architecture: docs/system-architecture.md
   research_questions: docs/research-questions.md
   reproducibility: docs/reproducibility.md
   data_model: docs/data-model.md
   glossary: docs/glossary.md
+  style_guide: docs/style-guide.md
   licensing: docs/licensing.md
 
 indexes:

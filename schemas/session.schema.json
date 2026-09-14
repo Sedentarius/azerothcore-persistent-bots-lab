@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.invalid/schemas/session.schema.json",
+  "$id": "https://raw.githubusercontent.com/Sedentarius/azerothcore-persistent-bots-lab/main/schemas/session.schema.json",
   "title": "Server Session",
   "type": "object",
   "required": ["schema_version", "session_id", "started_at", "termination_reason"],
