@@ -1,0 +1,33 @@
+schema_version: 1
+experiment_id: EXP-000
+status: template
+
+rule: >-
+  Record every value that differs from the selected upstream distribution or
+  default configuration before measured data collection starts.
+
+deviations: []
+
+examples_not_actual_data:
+  - category: deployment
+    key: database_credentials
+    value: redacted
+    reason: local deployment requirement
+    expected_behavioral_effect: none
+  - category: deployment
+    key: client_realmlist
+    value: private_local_address_redacted
+    reason: local network access
+    expected_behavioral_effect: none
+
+forbidden_as_silent_deviations:
+  - bot level distribution tuning
+  - experience rate changes
+  - economy rate changes
+  - bot cheat changes
+  - automatic maintenance changes
+  - progression cap changes
+  - AI strategy tuning
+  - navigation fixes
+  - project telemetry patches
+  - Auction House behavior patches
