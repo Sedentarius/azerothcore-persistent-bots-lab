@@ -1,0 +1,36 @@
+schema_version: 1
+release_id: REPLACE_ME
+created_at: null
+project_commit: null
+realm_stage: null
+
+upstream:
+  azerothcore:
+    repository: null
+    commit: null
+  playerbots:
+    repository: null
+    commit: null
+  individual_progression:
+    repository: null
+    commit: null
+  era_talents:
+    repository: null
+    commit: null
+
+container:
+  images: []
+
+client:
+  build: 12340
+  locale: enUS
+  local_patch_hashes: []
+
+configuration:
+  effective_files: []
+  sha256: []
+
+patch_series: []
+database_migrations: []
+qa_summary: null
+known_limitations: []

@@ -1,0 +1,48 @@
+project:
+  id: ac-pbl
+  name: AzerothCore Persistent Bots Lab
+  repository: Sedentarius/azerothcore-persistent-bots-lab
+  status: bootstrap
+  language: en-US
+
+scope:
+  client_protocol_base: "World of Warcraft 3.3.5a build 12340"
+  progression:
+    - vanilla
+    - tbc
+    - wotlk
+  domains:
+    - agent-based simulation
+    - persistent virtual worlds
+    - game bots
+    - virtual economy
+    - navigation
+    - group coordination
+    - server reliability
+
+research_policy:
+  observations_are_experiments: false
+  negative_results_are_publishable: true
+  raw_data_is_immutable: true
+  exact_runtime_exposure_required: true
+  exact_upstream_revisions_required_for_results: true
+
+current:
+  phase: pre-reset
+  release: null
+  realm_stage: null
+  active_cohorts: []
+
+documentation:
+  agent_guide: AGENTS.md
+  methodology: docs/methodology.md
+  architecture: docs/system-architecture.md
+  research_questions: docs/research-questions.md
+  reproducibility: docs/reproducibility.md
+  data_model: docs/data-model.md
+  glossary: docs/glossary.md
+  style_guide: docs/style-guide.md
+  licensing: docs/licensing.md
+
+indexes:
+  primary: INDEX.yaml

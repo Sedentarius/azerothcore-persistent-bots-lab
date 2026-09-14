@@ -1,0 +1,29 @@
+schema_version: 1
+
+project:
+  descriptor: PROJECT.yaml
+  readme: README.md
+  agent_guide: AGENTS.md
+
+documents:
+  methodology: docs/methodology.md
+  architecture: docs/system-architecture.md
+  research_questions: docs/research-questions.md
+  reproducibility: docs/reproducibility.md
+  data_model: docs/data-model.md
+  glossary: docs/glossary.md
+  style_guide: docs/style-guide.md
+  licensing: docs/licensing.md
+
+decisions:
+  ADR-0001: decisions/ADR-0001-organic-progression.md
+  ADR-0002: decisions/ADR-0002-disable-dynamic-level-brackets.md
+  ADR-0003: decisions/ADR-0003-intermittent-runtime.md
+  ADR-0004: decisions/ADR-0004-separate-observations-and-experiments.md
+
+experiments: {}
+datasets: {}
+cohorts: {}
+releases: {}
+sessions: {}
+incidents: {}

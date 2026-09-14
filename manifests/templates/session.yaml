@@ -1,0 +1,20 @@
+schema_version: 1
+session_id: SES-000000
+release_id: null
+realm_stage: null
+started_at: null
+stopped_at: null
+termination_reason: null
+server_runtime_seconds: null
+
+human_presence:
+  present: null
+  seconds: null
+
+bot_population:
+  unique_bots: null
+  mean_online: null
+  bot_hours: null
+
+active_experiments: []
+notes: null
