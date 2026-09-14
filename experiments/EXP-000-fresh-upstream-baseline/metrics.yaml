@@ -1,0 +1,114 @@
+schema_version: 1
+experiment_id: EXP-000
+
+exposure:
+  required:
+    server_runtime_hours_min: 24
+    bot_hours_min: 2000
+    server_sessions_min: 4
+    clean_restarts_min: 2
+    continuous_session_hours_min: 4
+
+measurement_groups:
+  population:
+    required:
+      - bots_created
+      - bots_online
+      - unique_bots_seen
+      - level_distribution
+      - class_distribution
+      - race_distribution
+    preferred_statistics:
+      - count
+      - median
+      - p25
+      - p75
+      - min
+      - max
+
+  progression:
+    required:
+      - level_change_events_when_observable
+      - initial_level_distribution
+      - final_level_distribution
+      - unexplained_level_changes
+    units:
+      unexplained_level_changes: count
+
+  persistence:
+    required:
+      - sampled_bot_state_before_restart
+      - sampled_bot_state_after_restart
+      - unexplained_state_changes
+
+  resources:
+    required:
+      - observed_generated_gold_events
+      - observed_generated_item_or_consumable_events
+      - observed_automatic_repair_events
+      - observed_automatic_training_events
+    rule: record zero only when the event was observable and none occurred; otherwise use null
+
+  economy:
+    required:
+      - sampled_money_distribution
+      - database_or_log_evidence_for_major_transactions_when_available
+    optional:
+      - auction_house_counts
+      - auction_house_value_summary
+
+  navigation:
+    required:
+      - stuck_or_recovery_events_visible_in_upstream_logs
+      - manually_observed_repeated_path_failures
+    rate_denominator: bot_hours
+
+  group_behavior:
+    required:
+      - playerbot_grouping_observed
+    optional:
+      - dungeon_finder_observed
+      - dungeon_runs
+      - wipes
+      - manual_interventions
+
+  performance:
+    required:
+      - host_cpu_percent
+      - host_memory_used_mb
+      - container_cpu_percent
+      - container_memory_used_mb
+    preferred_sampling_seconds: 60
+    optional:
+      - world_loop_latency_ms
+
+  database:
+    required:
+      - database_size_bytes_start
+      - database_size_bytes_end
+    optional:
+      - table_size_breakdown
+
+  reliability:
+    required:
+      - clean_startups
+      - clean_shutdowns
+      - crashes
+      - startup_failures
+      - relevant_error_count
+
+  human_presence:
+    required:
+      - human_online_seconds
+      - gm_interventions
+      - session_mode
+
+null_semantics:
+  null: not_observed_or_not_measurable
+  zero: measured_and_none_occurred
+
+reporting_rules:
+  - Every rate must include its denominator.
+  - Do not convert missing telemetry into zero events.
+  - Separate direct measurements from manual observations.
+  - Preserve session-level values before producing aggregate statistics.

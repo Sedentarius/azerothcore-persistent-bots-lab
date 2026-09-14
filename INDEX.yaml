@@ -22,6 +22,9 @@ decisions:
   ADR-0004: decisions/ADR-0004-separate-observations-and-experiments.md
   ADR-0005: decisions/ADR-0005-baseline-before-intervention.md
 
+upstream_baselines:
+  EXP-000: upstream/baselines/EXP-000-selected-stack.yaml
+
 experiments:
   EXP-000: experiments/EXP-000-fresh-upstream-baseline
 

@@ -1,6 +1,6 @@
 experiment_id: EXP-000
 title: Fresh Upstream Baseline
-status: planned
+status: ready_to_freeze
 kind: characterization
 
 question: >-
@@ -19,13 +19,35 @@ baseline_definition:
     - filesystem paths
     - ports
     - database connection values
+    - account creation
+    - client realmlist
   deviations_must_be_recorded: true
+  clean_database_required: true
+  current_project_qa_state_reuse_allowed: false
+
+human_gameplay:
+  allowed: true
+  normal_non_gm_character_required_for_measured_play: true
+  gm_interventions_must_be_recorded: true
+  server_must_run_24_7: false
+
+instrumentation:
+  server_code_instrumentation_allowed: false
+  external_read_only_observation_allowed: true
+  examples:
+    - existing_server_logs
+    - read_only_sql_queries
+    - docker_stats
+    - database_size_snapshots
+    - git_revision_capture
+    - effective_configuration_capture
 
 required_provenance:
   - project_commit
   - upstream_revisions
   - docker_image_or_build_identity
   - effective_configuration
+  - baseline_deviations
   - host_summary
   - client_build
   - session_ids
@@ -42,16 +64,30 @@ primary_measurement_groups:
   - performance
   - database_growth
   - operational_failures
+  - human_presence
 
 exposure:
-  target_server_runtime_hours: null
-  target_bot_hours: null
-  stopping_rule: to_be_frozen_before_data_collection
+  target_server_runtime_hours: 24
+  target_bot_hours: 2000
+  minimum_server_sessions: 4
+  minimum_clean_restarts: 2
+  minimum_longest_continuous_session_hours: 4
+  stopping_rule: >-
+    Stop only after all exposure thresholds are met and required provenance,
+    session manifests, evidence, and the baseline report are complete.
 
 analysis:
   plan: protocol.md
+  metrics: metrics.yaml
+  runbook: runbook.md
   result_path: null
+
+handoff:
+  baseline_world_becomes_persistent_world: false
+  next_step: >-
+    Archive EXP-000, create a new clean database state, apply project
+    interventions, pass pre-reset QA, then create the persistent Vanilla world.
 
 notes:
   - This experiment is a reference characterization, not a universal causal control.
-  - No result is claimed until runtime targets, exact versions, configuration, and analysis are frozen.
+  - Exact upstream revisions and effective configuration must be frozen before the first measured session.

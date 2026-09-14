@@ -2,7 +2,7 @@ project:
   id: ac-pbl
   name: AzerothCore Persistent Bots Lab
   repository: Sedentarius/azerothcore-persistent-bots-lab
-  status: bootstrap
+  status: active
   language: en-US
 
 scope:
@@ -30,11 +30,12 @@ research_policy:
   default_behavior_must_be_measured_before_replacement: true
 
 current:
-  phase: upstream-baseline-planning
+  phase: upstream-baseline-preflight
   release: null
   realm_stage: null
   active_cohorts: []
   baseline_experiment: EXP-000
+  selected_upstream_baseline: upstream/baselines/EXP-000-selected-stack.yaml
 
 research_sequence:
   - phase: baseline
