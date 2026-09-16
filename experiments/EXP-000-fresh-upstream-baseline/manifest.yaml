@@ -1,6 +1,6 @@
 experiment_id: EXP-000
 title: Fresh Upstream Baseline
-status: ready_to_freeze
+status: in_progress
 kind: characterization
 
 question: >-
@@ -80,14 +80,29 @@ analysis:
   plan: protocol.md
   metrics: metrics.yaml
   runbook: runbook.md
-  result_path: null
+  result_path: ../../analysis/EXP-000-RUN-0001-report.md
+
+completed_runs:
+  - RUN-0001
+
+current_completion_gap:
+  server_sessions_observed: 2
+  server_sessions_required: 4
+  clean_restarts_observed: 0
+  clean_restarts_required: 2
+  runtime_target_met: true
+  exact_bot_hours_available: false
+  required_performance_telemetry_complete: false
+  database_growth_complete: false
 
 handoff:
   baseline_world_becomes_persistent_world: false
   next_step: >-
-    Archive EXP-000, create a new clean database state, apply project
-    interventions, pass pre-reset QA, then create the persistent Vanilla world.
+    Preserve RUN-0001, complete the missing EXP-000 exposure and provenance
+    requirements in additional measured baseline sessions, then freeze the
+    baseline before applying project interventions.
 
 notes:
   - This experiment is a reference characterization, not a universal causal control.
   - Exact upstream revisions and effective configuration must be frozen before the first measured session.
+  - RUN-0001 reached 24 hours of cumulative worldserver runtime but did not satisfy every experiment completion threshold.
