@@ -1,0 +1,24 @@
+schema_version: 1
+session_id: SES-0001
+experiment_id: EXP-000
+run_id: RUN-0001
+status: ended_unplanned
+
+worldserver:
+  operational_start_local: 2026-09-14T23:40:13.554-03:00
+  last_logged_event_local: 2026-09-15T15:32:56.187-03:00
+  measured_runtime_seconds: 57162.633
+  termination: unplanned_power_outage
+
+population:
+  target_rndbots_online: 500
+  sampled_cohort_size: 10
+  sampled_cohort_online_pct: 100.0
+
+instrumentation:
+  cohort_snapshot_interval_minutes: 10
+  source: external_read_only_sql_and_existing_logs
+
+notes:
+  - The session ended because of a local power outage.
+  - No clean shutdown was observed for this session.
