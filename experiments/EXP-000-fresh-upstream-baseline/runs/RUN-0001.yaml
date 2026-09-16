@@ -54,8 +54,14 @@ validity:
 artifacts:
   cohort_dataset: DATA-0001
   report: ../../../analysis/EXP-000-RUN-0001-report.md
-  population_snapshots:
-    - ../../../data/EXP-000/DATA-0001-cohort-timeseries.tsv
+  published_data:
+    - ../../../data/EXP-000/DATA-0001-level-events.tsv
+    - ../../../data/EXP-000/DATA-0001-cohort-summary.tsv
+    - ../../../data/EXP-000/DATA-0001-effective-playerbots.txt
+  raw_snapshot_series:
+    location: local sanitized publication archive
+    snapshots: 145
+    rows: 1450
   performance_data:
     - derived from final worldserver log; event-triggered summaries only
   database_snapshots: []
