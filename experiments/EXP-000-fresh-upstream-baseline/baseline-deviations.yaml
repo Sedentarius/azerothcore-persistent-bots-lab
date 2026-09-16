@@ -1,24 +1,42 @@
 schema_version: 1
 experiment_id: EXP-000
-status: template
+status: recorded_for_run_0001
 
 rule: >-
   Record every value that differs from the selected upstream distribution or
   default configuration before measured data collection starts.
 
-deviations: []
-
-examples_not_actual_data:
+deviations:
   - category: deployment
     key: database_credentials
-    value: redacted
+    value: redacted_local_generated_secret
     reason: local deployment requirement
     expected_behavioral_effect: none
+
   - category: deployment
-    key: client_realmlist
-    value: private_local_address_redacted
+    key: client_realmlist_and_server_address
+    value: private_lan_address_redacted
     reason: local network access
     expected_behavioral_effect: none
+
+  - category: deployment
+    key: timezone
+    value: America/Santiago
+    reason: local timestamp consistency
+    expected_behavioral_effect: none_expected_for_bot_behavior
+
+  - category: deployment_recovery
+    key: playerbots_base_tables
+    value: upstream_base_sql_imported_manually
+    reason: >-
+      Fresh install omitted playerbots_weightscales and
+      playerbots_weightscale_data, preventing worldserver startup.
+    expected_behavioral_effect: >-
+      Restores the schema required by the selected upstream PlayerBots build;
+      no project-specific behavioral tuning was introduced.
+    incident: github_issue_4
+
+behavioral_deviations: []
 
 forbidden_as_silent_deviations:
   - bot level distribution tuning
