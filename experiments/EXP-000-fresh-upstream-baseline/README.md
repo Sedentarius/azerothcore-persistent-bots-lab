@@ -10,6 +10,16 @@ This experiment establishes a reference point for later work. It is descriptive 
 
 How does a fresh upstream deployment behave under a documented local test population and runtime window?
 
+## Current evidence
+
+`RUN-0001` completed a 24-hour cumulative worldserver window and is published as partial baseline evidence.
+
+- run manifest: [`runs/RUN-0001.yaml`](runs/RUN-0001.yaml)
+- analysis: [`../../analysis/EXP-000-RUN-0001-report.md`](../../analysis/EXP-000-RUN-0001-report.md)
+- dataset extracts: [`../../data/EXP-000/`](../../data/EXP-000/)
+
+EXP-000 is still **in progress**. RUN-0001 did not satisfy the declared minimum of four server sessions and two clean restarts, and several required telemetry groups remain incomplete. Do not treat the 24-hour run as a frozen final baseline.
+
 ## Start here
 
 Use [`runbook.md`](runbook.md) for the operational procedure.
