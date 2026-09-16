@@ -1,0 +1,18 @@
+# DATA-0001 effective PlayerBots configuration subset
+# Source: sanitized effective playerbots.conf captured after RUN-0001.
+# Only keys directly referenced by the published analysis are included.
+
+AiPlayerbot.MinRandomBots = 500
+AiPlayerbot.MaxRandomBots = 500
+AiPlayerbot.RandomBotAutologin = 1
+AiPlayerbot.DisableRandomLevels = 0
+AiPlayerbot.RandomBotFixedLevel = 0
+AiPlayerbot.RandomBotMinLevel = 1
+AiPlayerbot.RandomBotMaxLevel = 80
+AiPlayerbot.LevelBrackets.Enabled = 1
+AiPlayerbot.LevelBrackets.Dynamic.UseDynamicDistribution = 1
+AiPlayerbot.LevelBrackets.Dynamic.RealPlayerWeight = 10
+AiPlayerbot.LevelBrackets.Dynamic.SyncFactions = 1
+AiPlayerbot.ResetBotLevel.Enabled = 0
+AiPlayerbot.BotActiveAlone = 10
+AiPlayerbot.EnablePeriodicOnlineOffline = 0

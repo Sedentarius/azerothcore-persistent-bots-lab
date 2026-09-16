@@ -1,0 +1,25 @@
+schema_version: 1
+session_id: SES-0002
+experiment_id: EXP-000
+run_id: RUN-0001
+status: completed_clean_shutdown
+
+worldserver:
+  operational_start_local: 2026-09-15T17:34:14.428-03:00
+  graceful_stop_signal_local: 2026-09-16T01:41:32.711-03:00
+  measured_runtime_seconds: 29238.283
+  termination: scheduled_graceful_shutdown
+
+population:
+  endpoint_total_online: 500
+  endpoint_rndbots_online: 500
+  sampled_cohort_size: 10
+  sampled_cohort_online_pct: 100.0
+
+instrumentation:
+  cohort_snapshot_interval_minutes: 10
+  source: external_read_only_sql_and_existing_logs
+
+notes:
+  - Worldserver received a graceful stop at the 24-hour cumulative runtime target.
+  - Authserver and database were stopped after the final backup completed.

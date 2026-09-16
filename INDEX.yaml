@@ -28,8 +28,14 @@ upstream_baselines:
 experiments:
   EXP-000: experiments/EXP-000-fresh-upstream-baseline
 
-datasets: {}
+datasets:
+  DATA-0001: data/EXP-000
+
 cohorts: {}
 releases: {}
-sessions: {}
+
+sessions:
+  SES-0001: sessions/SES-0001.yaml
+  SES-0002: sessions/SES-0002.yaml
+
 incidents: {}
