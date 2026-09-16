@@ -65,7 +65,7 @@ Session 2:
 
 The endpoint query recorded **500 characters online and 500 RNDBOT characters online** immediately before shutdown.
 
-A 10-bot observational cohort was sampled every 10 minutes. The published series contains 145 snapshots and 1,450 bot rows. All 10 cohort bots were online in 100% of captured snapshots.
+A 10-bot observational cohort was sampled every 10 minutes. The source series contains 145 snapshots and 1,450 bot rows. Compact derived extracts are published under `data/EXP-000/`. All 10 cohort bots were online in 100% of captured snapshots.
 
 ## Deployment incident
 
