@@ -1,0 +1,84 @@
+schema_version: 1
+experiment_id: EXP-000
+run_id: RUN-0001
+status: completed_partial
+
+session_ids:
+  - SES-0001
+  - SES-0002
+
+upstream_identity:
+  deployment_bundle_commit: 7da03710f8cfbc9729760c9a9f54d19a217ad80c
+  azerothcore_commit: 413bea61a85e20d9caef7d66fc601a661fdddd9d
+  playerbots_commit: b949b50bfcdd4fab937781bac2d7765e39330e4b
+  module_commits:
+    mod-individual-progression: 977e2005bacf97f35e506eb27b8af6b2ea1136af
+    mod-multibot-bridge: 759c100d5e508b9af28531a2642ded70619828ba
+    mod-era-talents: 3a0d9776c6837d8a5e5038c23c01c4fc388d90f8
+
+configuration:
+  effective_config_archive: ../../../data/EXP-000/DATA-0001-effective-playerbots.txt
+  deviation_register: ../baseline-deviations.yaml
+
+initial_state:
+  fresh_database: true
+  reused_project_characters: false
+  reused_project_bot_progression: false
+
+exposure:
+  server_runtime_seconds: 86400.916
+  bot_hours: null
+  bot_hours_note: >-
+    500 RNDBOTs were observed online at repeated checks and at the endpoint,
+    but whole-population online exposure was not continuously sampled. Exact
+    bot-hours are therefore not claimed.
+  sessions: 2
+  clean_restarts: 0
+  longest_continuous_session_seconds: 57162.633
+  human_online_seconds: null
+  interruption:
+    type: unplanned_power_outage
+    log_gap_seconds: 7236.398
+
+validity:
+  project_patches_present: false
+  behavior_tuning_present: false
+  contaminated_sessions: []
+  deployment_incident:
+    github_issue: 4
+    description: >-
+      Fresh install omitted PlayerBots weightscale base tables. Upstream base
+      SQL was imported before the measured stable window. Treated as deployment
+      recovery, not a behavioral intervention.
+
+artifacts:
+  cohort_dataset: DATA-0001
+  report: ../../../analysis/EXP-000-RUN-0001-report.md
+  population_snapshots:
+    - ../../../data/EXP-000/DATA-0001-cohort-timeseries.tsv
+  performance_data:
+    - derived from final worldserver log; event-triggered summaries only
+  database_snapshots: []
+  logs:
+    - local sanitized publication archive retained outside GitHub
+  observations:
+    - 27 cohort level-change events
+    - 14 large artificial re-level events
+    - 13 one-level progression-compatible events
+    - 14 invalid teleport log events affecting 9 bots
+
+completion:
+  runtime_target_met: true
+  exposure_targets_met: false
+  provenance_complete: false
+  report_complete: true
+  experiment_ready_to_freeze: false
+
+missing_requirements:
+  - two additional measured server sessions
+  - two clean restarts
+  - exact bot-hours
+  - human-online seconds
+  - continuous host/container CPU and memory telemetry
+  - database growth measurements
+  - remaining required resource-provenance observations
