@@ -2,7 +2,7 @@ project:
   id: ac-pbl
   name: AzerothCore Persistent Bots Lab
   repository: Sedentarius/azerothcore-persistent-bots-lab
-  status: active
+  status: paused
   language: en-US
 
 scope:
@@ -30,21 +30,26 @@ research_policy:
   default_behavior_must_be_measured_before_replacement: true
 
 current:
-  phase: upstream-baseline-preflight
+  phase: baseline_complete_research_paused
   release: null
   realm_stage: null
   active_cohorts: []
-  baseline_experiment: EXP-000
+  active_experiment: null
+  completed_baseline_experiment: EXP-000
   selected_upstream_baseline: upstream/baselines/EXP-000-selected-stack.yaml
+  further_experiments_planned: false
+  pause_reason: changed_priorities_and_limited_resources
 
 research_sequence:
-  - phase: baseline
-    experiment: EXP-000
-    purpose: characterize a fresh upstream deployment before project-specific patches and behavioral configuration changes
-  - phase: intervention
-    purpose: apply project changes as explicit, reviewable interventions and compare them with the baseline where the comparison is valid
-  - phase: persistent_world
-    purpose: begin longitudinal cohort and world experiments after the intervention build passes QA
+  completed:
+    - phase: baseline
+      experiment: EXP-000
+      purpose: characterize a fresh upstream deployment before project-specific changes
+  deferred:
+    - phase: intervention
+      status: not_planned
+    - phase: persistent_world
+      status: not_planned
 
 documentation:
   agent_guide: AGENTS.md
