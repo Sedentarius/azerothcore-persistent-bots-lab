@@ -2,7 +2,13 @@
 
 ## Purpose
 
-Measure how the selected upstream server stack behaves before project-specific patches or behavioral configuration changes are applied.
+Measure how the selected upstream server stack behaves before this project applies its own patches or behavioral configuration changes.
+
+This experiment establishes a reference point for later work. It is descriptive first. It should not be used as a universal causal control when later changes modify several variables at once.
+
+## Research question
+
+How does a fresh upstream deployment behave under a documented local test population and runtime window?
 
 ## Final status
 
@@ -19,20 +25,51 @@ All declared exposure thresholds were met: more than 24 server-hours, more than 
 
 Several measurement groups remain incomplete and are preserved as explicit limitations. The experiment is not being extended to fill those gaps.
 
-## Baseline identity
+## Start here
 
-The experiment remained on one pinned upstream identity throughout both runs. Exact commits and the effective configuration are recorded in the run manifests and published data.
+Use [`runbook.md`](runbook.md) for the historical operational procedure.
 
-No project behavior patch or planned persistent-world tuning was introduced during EXP-000.
+The baseline exposure target is defined in [`metrics.yaml`](metrics.yaml). All deviations from upstream defaults are recorded in [`baseline-deviations.yaml`](baseline-deviations.yaml).
 
-## Publication policy
+## Primary outputs
 
-The repository publishes compact normalized extracts. Raw operational evidence is retained separately and identified by SHA-256 in `RUN-0002.yaml` and the final report.
+The completed experiment publishes:
 
-Unexpected behavior is reported as observation unless the evidence supports a stronger result.
+- exact upstream revisions and deployment environment;
+- all recorded deviations from upstream default configuration;
+- bot population and level-distribution evidence;
+- cohort level changes and persistence across restart;
+- money-state evidence where observable;
+- bot online population and measured exposure;
+- server runtime and conservative bot-hours;
+- host/container performance summaries;
+- database allocation snapshots;
+- navigation/error observations;
+- group behavior observed during normal play;
+- reliability incidents and restart recovery.
+
+Missing resource-provenance measurements remain explicit `null`/not-observed limitations rather than being converted to zero.
+
+## Gameplay policy
+
+Normal recreational play was allowed and used a normal non-GM character.
+
+RUN-0002 records one scoped human intervention: two existing RNDBOT characters were manually brought into the party because the starting area lacked available party support. The affected population window is documented and is not used as evidence of autonomous population behavior.
+
+## What this experiment does not do
+
+It does not test the project's proposed organic-progression configuration. It does not establish x1 persistent-world behavior, exact XP provenance, or the long-term economy after project interventions.
+
+The baseline world was temporary and is not being upgraded in place into a final persistent realm.
+
+## Publication rule
+
+No baseline statistic is published without its denominator, exposure window, and provenance.
+
+Unexpected behavior is reported as an observation unless the protocol supports a stronger conclusion.
 
 ## Project disposition
 
 No follow-on intervention experiment is currently planned. The research program is paused after EXP-000 because project priorities changed and available resources are limited.
 
-The baseline remains useful as a frozen descriptive reference. It should not be treated as a universal causal control.
+The baseline remains a frozen descriptive reference.
