@@ -1,0 +1,11 @@
+scope	metric	value	unit	note
+RUN-0002	server_runtime	70464.929	seconds	Sum of SES-0003 through SES-0005 from World Initialized to recorded session end
+RUN-0002	bot_hours_conservative	9720.264	bot-hours	Adjacent valid running samples <=90 s; interval uses min endpoint RNDBOT count
+RUN-0002	sessions	3	count	SES-0003, SES-0004, SES-0005
+RUN-0002	clean_restarts	2	count	Planned clean restarts between SES-0003/0004 and SES-0004/0005
+RUN-0002	longest_continuous_session	52769.599	seconds	SES-0003
+RUN-0002	human_online	4186	seconds	BASELINE last_login 17:17:36 to Rand logout_time 18:27:22
+EXP-000	server_runtime	156865.845	seconds	RUN-0001 + RUN-0002
+EXP-000	bot_hours_lower_bound	9720.264	bot-hours	RUN-0002 only; RUN-0001 excluded because whole-population exposure was not continuously sampled
+EXP-000	sessions	5	count	SES-0001 through SES-0005
+EXP-000	clean_restarts	2	count	Both measured in RUN-0002
