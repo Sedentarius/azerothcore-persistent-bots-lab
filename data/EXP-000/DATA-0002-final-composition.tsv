@@ -1,0 +1,21 @@
+dimension	id	name	characters
+class	1	Warrior	100
+class	2	Paladin	100
+class	3	Hunter	100
+class	4	Rogue	100
+class	5	Priest	100
+class	6	Death Knight	100
+class	7	Shaman	100
+class	8	Mage	100
+class	9	Warlock	100
+class	11	Druid	100
+race	1	Human	92
+race	2	Orc	71
+race	3	Dwarf	83
+race	4	Night Elf	116
+race	5	Undead	94
+race	6	Tauren	95
+race	7	Gnome	84
+race	8	Troll	88
+race	10	Blood Elf	138
+race	11	Draenei	139
