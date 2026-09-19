@@ -3,7 +3,6 @@ schema_version: 1
 project:
   descriptor: PROJECT.yaml
   readme: README.md
-  agent_guide: AGENTS.md
 
 documents:
   methodology: docs/methodology.md
@@ -28,8 +27,13 @@ upstream_baselines:
 experiments:
   EXP-000: experiments/EXP-000-fresh-upstream-baseline
 
+runs:
+  RUN-0001: experiments/EXP-000-fresh-upstream-baseline/runs/RUN-0001.yaml
+  RUN-0002: experiments/EXP-000-fresh-upstream-baseline/runs/RUN-0002.yaml
+
 datasets:
   DATA-0001: data/EXP-000
+  DATA-0002: data/EXP-000
 
 cohorts: {}
 releases: {}
@@ -37,5 +41,11 @@ releases: {}
 sessions:
   SES-0001: sessions/SES-0001.yaml
   SES-0002: sessions/SES-0002.yaml
+  SES-0003: sessions/SES-0003.yaml
+  SES-0004: sessions/SES-0004.yaml
+  SES-0005: sessions/SES-0005.yaml
+
+results:
+  EXP-000-final: analysis/EXP-000-final-report.md
 
 incidents: {}
