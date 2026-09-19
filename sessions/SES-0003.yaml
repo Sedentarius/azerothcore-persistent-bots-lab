@@ -1,0 +1,21 @@
+schema_version: 1
+session_id: SES-0003
+experiment_id: EXP-000
+run_id: RUN-0002
+status: completed_clean_restart
+
+worldserver:
+  operational_start_local: 2026-09-16T02:21:17.401-03:00
+  session_end_local: 2026-09-16T17:00:47-03:00
+  measured_runtime_seconds: 52769.599
+  termination: planned_clean_restart
+
+population:
+  target_rndbots_online: 500
+  mode: bots_only
+  human_online_seconds: 0
+
+instrumentation:
+  population_interval_seconds_nominal: 60
+  cohort_interval_minutes_nominal: 10
+  source: external_read_only_sql_docker_stats_and_existing_logs

@@ -1,0 +1,9 @@
+component	metric	samples	median	p95	min	max	unit
+windows_host	cpu_percent	1103	23.000	51.000	8.000	98.000	%
+windows_host	memory_used	1103	23.096	27.423	19.131	31.633	GiB
+ac-worldserver	cpu_percent	1104	210.960	228.739	102.680	255.960	%
+ac-worldserver	memory_used	1104	5961.728	6096.742	5543.936	6107.136	MiB
+ac-authserver	cpu_percent	1104	1.700	2.858	1.500	3.480	%
+ac-authserver	memory_used	1104	6.176	6.926	4.727	7.441	MiB
+ac-database	cpu_percent	1104	4.240	11.164	1.680	98.720	%
+ac-database	memory_used	1104	1848.320	1869.824	1779.712	1875.968	MiB

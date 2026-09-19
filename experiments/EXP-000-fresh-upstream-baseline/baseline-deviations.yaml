@@ -1,6 +1,6 @@
 schema_version: 1
 experiment_id: EXP-000
-status: recorded_for_run_0001
+status: frozen_for_experiment
 
 rule: >-
   Record every value that differs from the selected upstream distribution or
@@ -37,6 +37,10 @@ deviations:
     incident: github_issue_4
 
 behavioral_deviations: []
+
+run_notes:
+  RUN-0001: deviations_above_apply
+  RUN-0002: same_baseline_identity_no_new_configuration_deviations
 
 forbidden_as_silent_deviations:
   - bot level distribution tuning

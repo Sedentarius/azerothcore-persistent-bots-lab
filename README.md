@@ -2,32 +2,43 @@
 
 A public research and engineering project about persistent autonomous bot populations in an AzerothCore world.
 
-The project studies how PlayerBots behave when they are treated as persistent characters rather than disposable population fillers. The world starts in a Vanilla-like stage, progresses through TBC and WotLK, and aims to preserve normal game causes for level, money, equipment, professions, travel, group activity, and economic behavior.
+The project studies how PlayerBots behave when they are treated as persistent characters rather than disposable population fillers. The original design intended a Vanilla-like stage followed by TBC and WotLK while preserving normal game causes for level, money, equipment, professions, travel, group activity, and economic behavior.
 
 PlayerBots are mainly rule-based autonomous agents. This repository does **not** describe them as machine-learning agents unless a future component actually uses machine learning.
 
 ## Current status
 
-**Phase:** fresh-upstream baseline planning
+**Research paused after completion of the upstream baseline.**
 
-Before applying the project's planned progression, economy, cohort, navigation, or autonomy changes, the project will first measure a new server using the selected upstream stack as distributed.
+The formal baseline experiment, [`EXP-000 - Fresh Upstream Baseline`](experiments/EXP-000-fresh-upstream-baseline/README.md), is closed as **completed with limitations**. Across two runs and five measured sessions it reached all declared exposure thresholds.
 
-The first formal experiment is [`EXP-000 - Fresh Upstream Baseline`](experiments/EXP-000-fresh-upstream-baseline/README.md).
+Final analysis: [`analysis/EXP-000-final-report.md`](analysis/EXP-000-final-report.md).
 
-Only deployment-specific values required to start and access the server may differ from upstream defaults during the baseline. Every deviation must be recorded.
-
-After the baseline is frozen, the project will apply the planned interventions and compare shared metrics where the comparison is valid.
+The project will not proceed to the previously planned intervention or persistent-world experiments at this time because priorities changed and available resources are limited. The repository remains as a reproducible record of the completed baseline and of the future design that was not executed.
 
 ## Research sequence
 
-1. **Fresh upstream baseline** - measure default behavior before project patches or behavioral tuning.
-2. **Intervention build** - apply the project's planned changes as explicit, reviewable modifications.
-3. **Persistent Vanilla world** - start longitudinal cohort, economy, navigation, and group-autonomy studies after the intervention build passes QA.
-4. **Later eras** - repeat relevant measurements as the world progresses through TBC and WotLK.
+1. **Fresh upstream baseline — completed.** Default behavior was characterized before project patches or behavioral tuning.
+2. **Intervention build — deferred / not currently planned.** The intended project changes were not applied as part of this research program.
+3. **Persistent Vanilla world — deferred / not currently planned.**
+4. **Later eras — deferred / not currently planned.**
 
-The baseline is a reference point. It is not automatically a causal control for experiments that change several variables at once.
+The baseline is a descriptive reference point. It is not automatically a causal control for experiments that change several variables at once.
+
+## Main baseline findings
+
+- Default dynamic level management can rewrite individual RNDBOT level history.
+- Synthetic money can accompany PlayerBots reinitialization.
+- Autonomous movement and progression-compatible level-ups are observable.
+- Two planned clean restarts recovered the configured 500-RNDBOT online population and preserved levels in the sampled ten-bot cohort.
+- Invalid teleport attempts using a `Z=-200000` sentinel were observed.
+- RUN-0002 supplied continuous external CPU/RAM, population, database-size, and cohort telemetry.
+
+See the final report for evidence, denominators, and limitations.
 
 ## Main research questions
+
+The repository was designed around these questions. Only the upstream-baseline portion was completed.
 
 1. How does the selected upstream stack behave before this project changes it?
 2. Can a persistent PlayerBots population progress for long periods without artificial level redistribution or routine resource generation?
@@ -37,7 +48,9 @@ The baseline is a reference point. It is not automatically a causal control for 
 6. How reliably can autonomous groups complete dungeons and later raid content with limited human intervention?
 7. Which configuration and code changes are useful enough to contribute back to the AzerothCore and PlayerBots ecosystem?
 
-See [`docs/research-questions.md`](docs/research-questions.md) for scope and measurement rules.
+Only question 1 received a completed formal characterization. The remaining questions are preserved as historical project scope, not as completed results.
+
+See [`docs/research-questions.md`](docs/research-questions.md) for the original scope and measurement rules.
 
 ## Core principles
 
@@ -65,7 +78,7 @@ See [`docs/research-questions.md`](docs/research-questions.md) for scope and mea
 | `observations/` | Findings from normal recreational use |
 | `data/` | Published datasets and metadata |
 | `schemas/` | Machine-readable data definitions |
-| `analysis/` | Reproducible analysis code |
+| `analysis/` | Reproducible analysis and reports |
 | `results/` | Experiment reports and generated summaries |
 | `qa/` | Regression and pre-release validation |
 | `fixtures/` | Small canonical datasets for tests and AI review |
@@ -76,25 +89,27 @@ See [`docs/research-questions.md`](docs/research-questions.md) for scope and mea
 
 ## Runtime model
 
-The realm does not need to run 24/7. Research exposure is recorded with three clocks:
+The realm did not need to run 24/7. Research exposure was recorded with three clocks:
 
 - **calendar time:** real elapsed time;
 - **server runtime:** time the world server was running;
 - **bot-hours:** summed online exposure across bots.
 
-Normal play sessions are valid observational data. Controlled experiments are declared separately and use predefined protocols.
+Normal play sessions were valid observational data when human presence and interventions were recorded.
 
-## Reproducibility target
+## Reproducibility
 
-A result should eventually be traceable through this chain:
+The final baseline evidence chain is:
 
-`commit -> release manifest -> session(s) -> experiment -> dataset -> analysis -> result -> decision or patch`
+`upstream revisions -> sessions -> RUN-0001/RUN-0002 -> DATA-0001/DATA-0002 -> EXP-000 final report`
+
+RUN-0002 raw operational evidence is retained outside GitHub and identified by SHA-256 in the run manifest and final report.
 
 See [`docs/reproducibility.md`](docs/reproducibility.md).
 
 ## Software base
 
-The current project uses:
+The completed baseline used:
 
 - World of Warcraft 3.3.5a client, build 12340, as the protocol/client base;
 - AzerothCore;
@@ -103,12 +118,12 @@ The current project uses:
 - `mod-era-talents`;
 - Docker-based local deployment.
 
-Exact revisions are not claimed in this README. They belong in release manifests under `manifests/releases/`.
+Exact revisions are recorded in the EXP-000 run manifests.
 
 ## Legal and data boundaries
 
-This repository will not distribute Blizzard client files, MPQ archives, copyrighted game assets, account credentials, secret keys, or private database dumps. Upstream projects retain their own licenses and attribution. Project-wide licensing is being documented before reusable code or derivative patches are published; see [`docs/licensing.md`](docs/licensing.md).
+This repository does not distribute Blizzard client files, MPQ archives, copyrighted game assets, account credentials, secret keys, or private database dumps. Upstream projects retain their own licenses and attribution. See [`docs/licensing.md`](docs/licensing.md).
 
 ## Project maturity
 
-This repository is intentionally starting small. Empty scientific ceremony is avoided. New schemas, standards, and automation are added only when they protect reproducibility, reduce ambiguity, or make results easier to review.
+The project closes its active research phase after one completed baseline characterization. The repository is retained as an archival research record and may be resumed later, but no additional experiments are currently planned.
