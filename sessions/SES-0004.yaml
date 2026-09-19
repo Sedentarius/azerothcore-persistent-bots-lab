@@ -1,0 +1,35 @@
+schema_version: 1
+session_id: SES-0004
+experiment_id: EXP-000
+run_id: RUN-0002
+status: completed_clean_restart
+
+worldserver:
+  operational_start_local: 2026-09-16T17:03:44.494-03:00
+  session_end_local: 2026-09-16T21:46:34-03:00
+  measured_runtime_seconds: 16969.506
+  termination: planned_clean_restart
+
+population:
+  target_rndbots_online: 500
+  stable_population_first_observed_local: 2026-09-16T17:05:46-03:00
+  mode: mixed_human_and_bots_then_bots_only
+  human_online_seconds: 4186
+
+human_gameplay:
+  account: BASELINE
+  character: Rand
+  last_login_local: 2026-09-16T17:17:36-03:00
+  logout_local: 2026-09-16T18:27:22-03:00
+  gm_commands_observed: false
+  intervention:
+    type: manual_party_bot_addition
+    bots_added: 2
+    reason: starting area lacked available party support
+    observed_effect: RNDBOT online temporarily reached 502
+    scope: human-play window only
+
+instrumentation:
+  population_interval_seconds_nominal: 60
+  cohort_interval_minutes_nominal: 10
+  source: external_read_only_sql_docker_stats_existing_logs_and_postrun_readonly_queries
