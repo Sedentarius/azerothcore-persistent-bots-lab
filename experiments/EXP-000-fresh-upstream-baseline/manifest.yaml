@@ -14,6 +14,13 @@ baseline_definition:
   project_patches_allowed: false
   behavioral_tuning_allowed: false
   deployment_only_changes_allowed: true
+  deployment_change_examples:
+    - credentials
+    - filesystem paths
+    - ports
+    - database connection values
+    - account creation
+    - client realmlist
   deviations_must_be_recorded: true
   clean_database_required: true
   current_project_qa_state_reuse_allowed: false
@@ -22,10 +29,42 @@ human_gameplay:
   allowed: true
   normal_non_gm_character_required_for_measured_play: true
   gm_interventions_must_be_recorded: true
+  server_must_run_24_7: false
 
 instrumentation:
   server_code_instrumentation_allowed: false
   external_read_only_observation_allowed: true
+  examples:
+    - existing_server_logs
+    - read_only_sql_queries
+    - docker_stats
+    - database_size_snapshots
+    - git_revision_capture
+    - effective_configuration_capture
+
+required_provenance:
+  - project_commit
+  - upstream_revisions
+  - docker_image_or_build_identity
+  - effective_configuration
+  - baseline_deviations
+  - host_summary
+  - client_build
+  - session_ids
+
+primary_measurement_groups:
+  - population
+  - progression
+  - persistence
+  - resource_provenance
+  - economy_state
+  - navigation
+  - group_behavior
+  - rdf_behavior
+  - performance
+  - database_growth
+  - operational_failures
+  - human_presence
 
 exposure:
   target_server_runtime_hours: 24
@@ -33,6 +72,9 @@ exposure:
   minimum_server_sessions: 4
   minimum_clean_restarts: 2
   minimum_longest_continuous_session_hours: 4
+  stopping_rule: >-
+    Stop only after all exposure thresholds are met and required provenance,
+    session manifests, evidence, and the baseline report are complete.
   observed_server_runtime_seconds: 156865.845
   observed_bot_hours_lower_bound: 9720.264
   observed_server_sessions: 5
@@ -40,15 +82,15 @@ exposure:
   observed_longest_continuous_session_seconds: 57162.633
   exposure_targets_met: true
 
-completed_runs:
-  - RUN-0001
-  - RUN-0002
-
 analysis:
   plan: protocol.md
   metrics: metrics.yaml
   runbook: runbook.md
   result_path: ../../analysis/EXP-000-final-report.md
+
+completed_runs:
+  - RUN-0001
+  - RUN-0002
 
 completion:
   closed: true
@@ -72,10 +114,15 @@ remaining_limitations:
   - The final DB-only post-run query observed one stale characters.online=1 flag; DB flags after worldserver shutdown are not treated as live population.
 
 handoff:
+  baseline_world_becomes_persistent_world: false
   next_experiment: null
   project_research_state: paused_after_baseline
-  note: No intervention or persistent-world experiment is currently planned.
+  next_step: >-
+    None currently planned. Preserve the published baseline and raw evidence
+    hashes as the final research state unless the project is resumed later.
 
 notes:
   - This experiment is a reference characterization, not a universal causal control.
+  - Exact upstream revisions and effective configuration were frozen before the first measured session.
   - RUN-0001 and RUN-0002 used the same pinned upstream baseline identity.
+  - The experiment closes with explicit measurement limitations rather than silently converting missing observations to zero.
