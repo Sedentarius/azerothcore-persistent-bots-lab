@@ -1,0 +1,26 @@
+schema_version: 1
+session_id: SES-0005
+experiment_id: EXP-000
+run_id: RUN-0002
+status: completed_clean_shutdown
+
+worldserver:
+  operational_start_local: 2026-09-16T21:48:51.176-03:00
+  measured_session_end_local: 2026-09-16T22:00:57-03:00
+  measured_runtime_seconds: 725.824
+  termination: scheduled_final_shutdown_after_evidence_and_backup
+
+population:
+  target_rndbots_online: 500
+  stable_population_first_observed_local: 2026-09-16T21:50:36-03:00
+  mode: bots_only
+  human_online_seconds: 0
+
+instrumentation:
+  population_interval_seconds_nominal: 60
+  cohort_interval_minutes_nominal: 10
+  source: external_read_only_sql_docker_stats_and_existing_logs
+
+notes:
+  - Measurement was closed before the final backup and Docker shutdown.
+  - A post-run DB-only read found one stale characters.online=1 flag; it is not treated as a live connection.
