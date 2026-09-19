@@ -1,0 +1,77 @@
+schema_version: 1
+experiment_id: EXP-000
+run_id: RUN-0002
+status: completed
+
+session_ids:
+  - SES-0003
+  - SES-0004
+  - SES-0005
+
+upstream_identity:
+  deployment_bundle_commit: 7da03710f8cfbc9729760c9a9f54d19a217ad80c
+  azerothcore_commit: 413bea61a85e20d9caef7d66fc601a661fdddd9d
+  playerbots_commit: b949b50bfcdd4fab937781bac2d7765e39330e4b
+  module_commits:
+    mod-individual-progression: 977e2005bacf97f35e506eb27b8af6b2ea1136af
+    mod-multibot-bridge: 759c100d5e508b9af28531a2642ded70619828ba
+    mod-era-talents: 3a0d9776c6837d8a5e5038c23c01c4fc388d90f8
+
+configuration:
+  effective_config_archive: ../../../data/EXP-000/DATA-0001-effective-playerbots.txt
+  deviation_register: ../baseline-deviations.yaml
+
+initial_state:
+  fresh_database: false
+  continuation_of_run_0001_baseline_state: true
+  reused_project_characters: false
+  reused_project_bot_progression: false
+
+exposure:
+  server_runtime_seconds: 70464.929
+  bot_hours_conservative: 9720.264
+  bot_hours_method: >-
+    Integrate adjacent population samples only when both endpoints are valid,
+    worldserver status is running, and the interval is <= 90 seconds; use the
+    lower RNDBOT count at the two endpoints.
+  sessions: 3
+  clean_restarts: 2
+  longest_continuous_session_seconds: 52769.599
+  human_online_seconds: 4186
+
+validity:
+  project_patches_present: false
+  behavior_tuning_present: false
+  contaminated_sessions: []
+  scoped_interventions:
+    - session: SES-0004
+      type: manual_party_bot_addition
+      bots: 2
+      effect: RNDBOT online count temporarily increased from 500 to 502
+      handling: excluded from autonomous-population inference
+
+artifacts:
+  raw_evidence_sha256: 82753760cfdca330e15a50db33e322986a356a2bc8062df9d0a7f9dbe727ff83
+  postrun_addendum_sha256: 9606753428100dff6755c816262bd3c9b97135507e635da4c836053dbd98dd67
+  published_data:
+    - ../../../data/EXP-000/DATA-0002-exposure-summary.tsv
+    - ../../../data/EXP-000/DATA-0002-level-events.tsv
+    - ../../../data/EXP-000/DATA-0002-cohort-summary.tsv
+    - ../../../data/EXP-000/DATA-0002-restart-summary.tsv
+    - ../../../data/EXP-000/DATA-0002-performance-summary.tsv
+    - ../../../data/EXP-000/DATA-0002-database-summary.tsv
+    - ../../../data/EXP-000/DATA-0002-final-composition.tsv
+  report: ../../../analysis/EXP-000-final-report.md
+
+observations:
+  - all 10 cohort bots were online in all 115 cohort snapshots
+  - 5 cohort level changes were observed; all were +1 and progression-compatible
+  - no large cohort re-level event was observed in RUN-0002
+  - both clean restarts returned the online RNDBOT population to 500
+  - one invalid teleport with Z=-200000 was present in the retained SES-0005 log
+  - allocated database size was unchanged across 115 size snapshots
+
+completion:
+  exposure_targets_met: true
+  report_complete: true
+  run_complete: true
